@@ -43,7 +43,11 @@ const Tours = () => {
             <Col lg="12">
               <div className="pagination d-flex align-items-center
               justify-content-center mt-4 gap-3">
-                {[...Array(pageCount)]}
+                {[...Array(pageCount).keys()].map(number=> (
+                  <span>
+                    {number + 1}
+                  </span>
+                ))}
               </div>
             </Col>
           </Row>
