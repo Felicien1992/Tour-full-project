@@ -27,6 +27,9 @@ const TourDetails = () => {
 
   const { totalRating, avgRating } = calculateAvgRating(reviews)
 
+  // format date
+  const options = { day: 'numeric', month: 'long', year: 'numeric' }
+
   return (
     <>
       <section>
@@ -98,32 +101,68 @@ const TourDetails = () => {
                     </div>
 
                     <div className="review__input">
-                      <input type="text" placeholder='share your thoughts'/>
-                      <button className='btn primary__btn text-white' type='submit'>
+                      <input type="text" placeholder="share your thoughts" />
+                      <button
+                        className="btn primary__btn text-white"
+                        type="submit"
+                      >
                         Submit
                       </button>
                     </div>
                   </Form>
 
-                  <ListGroup className='user__reviews'>
-                    {
-                      reviews ?.map(review=>(
-                        <div className='review__item'>
-                          <img src={avatar} alt=''/>
+                  <ListGroup className="user__reviews">
+                    {reviews?.map((review) => (
+                      <div className="review__item">
+                        <img src={avatar} alt="" />
 
-                          <div className="w-100">
-                            <div className='d-flex align-items-center justify-content-between'>
-                              <div>
-                                <h5>Felicien</h5>
-                                <p>{new Date('01-18-2023').toLocaleDateString('en-US')}</p>
-                              </div>
+                        <div className="w-100">
+                          <div className="d-flex align-items-center justify-content-between">
+                            <div>
+                              <h5>Felicien</h5>
+                              <p>
+                                {new Date('01-18-2023').toLocaleDateString(
+                                  'en-US',
+                                  options
+                                )}
+                              </p>
 
+                              <h6>Amazing tour</h6>
                             </div>
+                            <span className="d-flex align-items-center">
+                              5<i className="ri-star-s-fill"></i>
+                            </span>
                           </div>
                         </div>
-                      ))
-                    }
+                      </div>
+                    ))}
+                  </ListGroup>
 
+                  <ListGroup className="user__reviews">
+                    {reviews?.map((review) => (
+                      <div className="review__item">
+                        <img src={avatar} alt="" />
+
+                        <div className="w-100">
+                          <div className="d-flex align-items-center justify-content-between">
+                            <div>
+                              <h5>Felicien</h5>
+                              <p>
+                                {new Date('01-18-2023').toLocaleDateString(
+                                  'en-US',
+                                  options
+                                )}
+                              </p>
+
+                              <h6>Amazing tour</h6>
+                            </div>
+                            <span className="d-flex align-items-center">
+                              5<i className="ri-star-s-fill"></i>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
                   </ListGroup>
                 </div>
                 {/*------ tour reviews section end--------*/}
