@@ -30,9 +30,15 @@ const TourDetails = () => {
   const { totalRating, avgRating } = calculateAvgRating(reviews)
 
   // format date
-  const options = { day: 'numeric', month: 'long', year: 'numeric' };
+  const options = { day: 'numeric', month: 'long', year: 'numeric' }
 
   // submit request to the server
+  const submitHandler = (e) => {
+    e.preventDefault()
+    const reviewText = reviewMsgRef.current.value
+
+    //later will call our api
+  }
 
   return (
     <>
