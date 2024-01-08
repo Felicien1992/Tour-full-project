@@ -48,8 +48,12 @@ const TourDetails = () => {
                       {totalRating == 0 ? (
                         'Not rated'
                       ) : (
-                        <span>({reviews.length})</span>
+                        <span>({reviews?.length})</span>
                       )}
+                    </span>
+
+                    <span>
+                      <i class="ri-map-pin-user-fill"></i> {address}
                     </span>
                   </div>
                 </div>
