@@ -7,7 +7,6 @@ import TourCard from './../shared/TourCard'
 import SearchBar from './../shared/SearchBar'
 import Newsletter from './../shared/Newsletter'
 import { Container, Row, Col } from 'reactstrap'
-import {} from 'reactstrap'
 
 const Tours = () => {
 
@@ -16,7 +15,7 @@ const Tours = () => {
 
   useEffect(()=>{
 
-    const pages = Math.ceil(5/ 8); // later we will use backend data count
+    const pages = Math.ceil(5/ 4); // later we will use backend data count
     setPageCount(pages);
 
   },[page]);
@@ -44,7 +43,7 @@ const Tours = () => {
               <div className="pagination d-flex align-items-center
               justify-content-center mt-4 gap-3">
                 {[...Array(pageCount).keys()].map(number=> (
-                  <span>
+                  <span key={number} onClick={()=> setPage(number)}>
                     {number + 1}
                   </span>
                 ))}
