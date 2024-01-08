@@ -62,7 +62,8 @@ const TourDetails = () => {
                       <i class="ri-map-pin-2-line"></i> {city}
                     </span>
                     <span>
-                      <i class="ri-money-dollar-circle-line"></i> ${price} / per person
+                      <i class="ri-money-dollar-circle-line"></i> ${price} / per
+                      person
                     </span>
                     <span>
                       <i class="ri-group-line"></i> {maxGroupSize}
@@ -71,6 +72,32 @@ const TourDetails = () => {
                   <h5>Description</h5>
                   <p>{desc}</p>
                 </div>
+
+                {/*------ tour reviews section start--------*/}
+                <div className="tour__reviews mt-4">
+                  <h4>Reviews({reviews?.length} reviews)</h4>
+
+                  <Form>
+                    <div className="d-flex align-items-center gap-3 mb-4 rating__group">
+                      <span>
+                        <i class="ri-star-s-fill"></i>
+                      </span>
+                      <span>
+                        <i class="ri-star-s-fill"></i>
+                      </span>
+                      <span>
+                        <i class="ri-star-s-fill"></i>
+                      </span>
+                      <span>
+                        <i class="ri-star-s-fill"></i>
+                      </span>
+                      <span>
+                        <i class="ri-star-s-fill"></i>
+                      </span>
+                    </div>
+                  </Form>
+                </div>
+                {/*------ tour reviews section end--------*/}
               </div>
             </Col>
           </Row>
