@@ -33,9 +33,10 @@ const TourDetails = () => {
   const options = { day: 'numeric', month: 'long', year: 'numeric' }
 
   // submit request to the server
-  const submitHandler = (e) => {
-    e.preventDefault()
+  const submitHandler = e => {
+    e.preventDefault();
     const reviewText = reviewMsgRef.current.value
+
 
     //later will call our api
   }
@@ -90,7 +91,7 @@ const TourDetails = () => {
                 <div className="tour__reviews mt-4">
                   <h4>Reviews({reviews?.length} reviews)</h4>
 
-                  <Form>
+                  <Form onSubmit={submitHandler}>
                     <div className="d-flex align-items-center gap-3 mb-4 rating__group">
                       <span onClick={() => setTourRating(1)}>
                         1 <i class="ri-star-s-fill"></i>
@@ -114,6 +115,7 @@ const TourDetails = () => {
                         type="text"
                         ref={reviewMsgRef}
                         placeholder="share your thoughts"
+                        required
                       />
                       <button
                         className="btn primary__btn text-white"
@@ -181,6 +183,8 @@ const TourDetails = () => {
                 {/*------ tour reviews section end--------*/}
               </div>
             </Col>
+
+            <Col lg='4'></Col>
           </Row>
         </Container>
       </section>
