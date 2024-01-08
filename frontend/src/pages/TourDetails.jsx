@@ -11,9 +11,28 @@ const TourDetails = () => {
   const tour = toutData.find((tour) => tour.id == id)
 
   // distracture properties from tour object
-  const {} = tour
+  const { photo, title, desc, price, reviews, city, distance, maxGroupSize } =
+    tour
 
-  return <div>TourDetails</div>
+  return (
+    <>
+      <section>
+        <Container>
+          <Row>
+            <Col lg="8">
+              <div className="tour__content">
+                <img src={photo} alt="" />
+
+                <div className="tour__info">
+                  <h2>{title}</h2>
+                </div>
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </section>
+    </>
+  )
 }
 
 export default TourDetails
