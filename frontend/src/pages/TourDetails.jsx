@@ -80,20 +80,27 @@ const TourDetails = () => {
                   <Form>
                     <div className="d-flex align-items-center gap-3 mb-4 rating__group">
                       <span>
-                        <i class="ri-star-s-fill"></i>
+                        1 <i class="ri-star-s-fill"></i>
                       </span>
                       <span>
-                        <i class="ri-star-s-fill"></i>
+                        2 <i class="ri-star-s-fill"></i>
                       </span>
                       <span>
-                        <i class="ri-star-s-fill"></i>
+                        3 <i class="ri-star-s-fill"></i>
                       </span>
                       <span>
-                        <i class="ri-star-s-fill"></i>
+                        4 <i class="ri-star-s-fill"></i>
                       </span>
                       <span>
-                        <i class="ri-star-s-fill"></i>
+                        5 <i class="ri-star-s-fill"></i>
                       </span>
+                    </div>
+
+                    <div className="review__input">
+                      <input type="text" placeholder='share your thoughts'/>
+                      <button className='btn primary__btn text-white' type='submit'>
+                        Submit
+                      </button>
                     </div>
                   </Form>
                 </div>
