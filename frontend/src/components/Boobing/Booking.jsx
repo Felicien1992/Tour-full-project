@@ -1,9 +1,12 @@
 import React, {useState} from 'react'
 import './booking.css'
-import { Form, FormGroup, ListGroup, ListGroupItem, Button } from 'reactstrap'
+import { Form, FormGroup, ListGroup, ListGroupItem, Button } from 'reactstrap';
+
+import { useNavigate } from 'react-router-dom'
 
 const Booking = ({ tour, avgRating }) => {
-  const { price, reviews } = tour
+  const { price, reviews } = tour;
+  const navigate = useNavigate()
 
   const [credentials, setCredentials] =useState({
     userId: '01', // later it will be dynamic
@@ -25,8 +28,8 @@ const Booking = ({ tour, avgRating }) => {
   const handleclick = e=>{
     e.preventDefault();
 
-    console.log(credentials)
-  }
+    navigate('/thank-you');
+  };
 
   return (
     <div className="booking">
