@@ -22,3 +22,7 @@
     font-weight: 600;
     color: var(--text-color);
 }
+
+.booking__top span i{
+    color: var(--secondary-color);
+}
