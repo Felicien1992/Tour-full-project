@@ -12,9 +12,12 @@ const Booking = ({ tour, avgRating }) => {
         </h3>
         <span className="tour__rating d-flex align-items-center">
           <i class="ri-star-s-fill"></i>
-          {avgRating == 0 ? null : avgRating} ({reviews ?.length})
+          {avgRating == 0 ? null : avgRating} ({reviews?.length})
         </span>
       </div>
+
+      {/*======== boking form start =======*/}
+      {/*======== boking form end=======*/}
     </div>
   )
 }
