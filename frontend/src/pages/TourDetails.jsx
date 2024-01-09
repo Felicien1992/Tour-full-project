@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom'
 import toutData from '../assets/data/tours'
 import calculateAvgRating from '../utils/avgRating'
 import avatar from '../assets/images/avatar.jpg'
+import Booking from '../components/Boobing/Booking'
 
 const TourDetails = () => {
   const { id } = useParams()
@@ -33,10 +34,9 @@ const TourDetails = () => {
   const options = { day: 'numeric', month: 'long', year: 'numeric' }
 
   // submit request to the server
-  const submitHandler = e => {
-    e.preventDefault();
+  const submitHandler = (e) => {
+    e.preventDefault()
     const reviewText = reviewMsgRef.current.value
-
 
     //later will call our api
   }
@@ -59,7 +59,7 @@ const TourDetails = () => {
                         class="ri-star-s-fill"
                         style={{ color: 'var(--secondary-color)' }}
                       ></i>
-                      {calculateAvgRating == 0 ? null : avgRating}
+                      {avgRating == 0 ? null : avgRating}
                       {totalRating == 0 ? (
                         'Not rated'
                       ) : (
@@ -184,7 +184,9 @@ const TourDetails = () => {
               </div>
             </Col>
 
-            <Col lg='4'></Col>
+            <Col lg="4">
+              <Booking tour={tour} avgRating = {avgRating}/>
+            </Col>
           </Row>
         </Container>
       </section>
