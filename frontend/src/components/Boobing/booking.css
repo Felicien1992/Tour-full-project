@@ -5,3 +5,8 @@
     position: sticky;
     top: 80px;
 }
+
+.booking__top h3{
+    font-size: 2rem;
+    font-weight: 700;
+}
