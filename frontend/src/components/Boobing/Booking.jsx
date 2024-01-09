@@ -1,11 +1,22 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './booking.css'
 import { Form, FormGroup, ListGroup, ListGroupItem, Button } from 'reactstrap'
 
 const Booking = ({ tour, avgRating }) => {
   const { price, reviews } = tour
 
-  const handleChange = (e) => {}
+  const [credentials, setCredentials] =useState({
+    userId: '01', // later it will be dynamic
+    userEmail: 'example@gmail.com',
+    fullName: '',
+    phone: '',
+    guestSize: 1,
+    bookAt: ''
+  })
+
+  const handleChange = (e) => {
+    setCredentials(prev=>({...prev, [e.target.id]:e.target.value}))
+  };
   return (
     <div className="booking">
       <div className="booking__top d-flex align-items-center justify-content-between">
