@@ -10,3 +10,9 @@
     font-size: 2rem;
     font-weight: 700;
 }
+
+.booking__top h3 span{
+    font-style: 1.1rem;
+    font-weight: 400;
+    color: var(--text-color);
+}
