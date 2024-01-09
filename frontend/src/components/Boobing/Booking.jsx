@@ -17,6 +17,17 @@ const Booking = ({ tour, avgRating }) => {
   const handleChange = (e) => {
     setCredentials(prev=>({...prev, [e.target.id]:e.target.value}))
   };
+
+  const serviceFee = 10
+  const totalAmount = Number(price) * Number(credentials.guestSize)
+
+  //   send data to the server
+  const handleclick = e=>{
+    e.preventDefault();
+
+    console.log(credentials)
+  }
+
   return (
     <div className="booking">
       <div className="booking__top d-flex align-items-center justify-content-between">
@@ -32,7 +43,7 @@ const Booking = ({ tour, avgRating }) => {
       {/*======== boking form start =======*/}
       <div className="booking__form">
         <h5>Information</h5>
-        <Form className="booking__info-form">
+        <Form className="booking__info-form" onSubmit={handleclick}>
           <FormGroup>
             <input
               type="text"
@@ -84,17 +95,17 @@ const Booking = ({ tour, avgRating }) => {
             <h5>
               Service charge
             </h5>
-            <span> $10</span>
+            <span> ${serviceFee}</span>
           </ListGroupItem>
           <ListGroupItem className="border-0 px-0 total">
             <h5>
               Total
             </h5>
-            <span> $109</span>
+            <span> ${totalAmount}</span>
           </ListGroupItem>
         </ListGroup>
 
-        <Button className='btn primary__btn w-100 mt-4'>Book Now</Button>
+        <Button className='btn primary__btn w-100 mt-4' onClick={handleclick}>Book Now</Button>
       </div>
     </div>
   )
