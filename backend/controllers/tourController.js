@@ -66,7 +66,7 @@ export const getSingleTour = async (req, res) => {
 
     res.status(200).json({
       success: true,
-      message: 'Successfully',
+      message: 'Successful',
       data: tour,
     })
   } catch (err) {
@@ -74,17 +74,3 @@ export const getSingleTour = async (req, res) => {
   }
 }
 
-// getAll tour
-// export const getAllTour = async (req, res) => {
-//   try {
-
-//     const tours = await Tour.find({})
-
-//     res.status(200).json({
-//       success: true,
-//       message: 'Successfully deleted',
-//       data: tour,
-//     })
-
-//   } catch (err) {}
-// }
