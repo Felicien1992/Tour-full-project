@@ -37,39 +37,54 @@ export const updateTour = async (req, res) => {
       data: updatedTour,
     })
   } catch (err) {
-    res
-      .status(500)
-      .json({ success: false, message: 'failed to update',
-    });
+    res.status(500).json({ success: false, message: 'failed to update' })
   }
 }
 
 // delete tour
 export const deleteTour = async (req, res) => {
-  const id = req.params.id;
+  const id = req.params.id
 
   try {
-    await  Tour.findByIdAndDelete(id);
+    await Tour.findByIdAndDelete(id)
 
     res.status(200).json({
       success: true,
       message: 'Successfully deleted',
-    });
+    })
   } catch (err) {
-    res
-      .status(500)
-      .json({ success: false, message: 'failed to deleted',
-    });
+    res.status(500).json({ success: false, message: 'failed to deleted' })
   }
-};
-  
+}
+
 // getSingle tour
 export const getSingleTour = async (req, res) => {
-  
+  const id = req.params.id
+
+  try {
+    const tour = await Tour.findById(id)
+
+    res.status(200).json({
+      success: true,
+      message: 'Successfully',
+      data: tour,
+    })
+  } catch (err) {
+    res.status(404).json({ success: false, message: 'not found' })
   }
+}
 
 // getAll tour
-export const getAllTour = async (req, res) => {
-  try {
-  } catch (err) {}
-}
+// export const getAllTour = async (req, res) => {
+//   try {
+
+//     const tours = await Tour.find({})
+
+//     res.status(200).json({
+//       success: true,
+//       message: 'Successfully deleted',
+//       data: tour,
+//     })
+
+//   } catch (err) {}
+// }
