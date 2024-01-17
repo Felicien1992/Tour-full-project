@@ -103,10 +103,19 @@ export const getTourBySearch = async (req, res) => {
   const maxGroupSize = parseInt(req.query.maxGroupSize)
 
   try {
-    
-    const tours = await Tour.find({ city, distance:{$gte:distance} })
+    // gte means greater than equal
+    const tours = await Tour.find({
+      city,
+      distance: { $gte: distance },
+      maxGroupSize: { $gte: maxGroupSize },
+    })
 
-  } catch (error) { 
-    
+    res.status(200).json({
+      success: true,
+      message: 'Successful',
+      data: tours,
+    })
+  } catch (err) {
+    res.status(404).json({ success: false, message: 'not found' })
   }
 }
