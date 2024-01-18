@@ -6,8 +6,8 @@ import {
   getSingleTour,
   getAllTour,
   getTourBySearch,
-} 
-from './../controllers/tourController.js';
+  getFeaturedTour,
+} from './../controllers/tourController.js'
 
 const router = express.Router()
 
