@@ -5,10 +5,9 @@ import jwt from 'jsonwebtoken'
 // user registration
 export const register = async (req, res) => {
   try {
-
     //hashing password
-    const salt = bcrypt.genSaltSync(10);
-    const hash = bcrypt.hashSync(req.body.password, salt);
+    const salt = bcrypt.genSaltSync(10)
+    const hash = bcrypt.hashSync(req.body.password, salt)
 
     const newUser = new User({
       username: req.body.username,
@@ -29,16 +28,22 @@ export const register = async (req, res) => {
 
 // user login
 export const login = async (req, res) => {
-
   const email = req.body.email
 
   try {
-
-    const user = await User.findOne({email})
+    const user = await User.findOne({ email })
 
     // if user doesn't exist
-    if(!user){
-      return res.status(404).json({success:false, message:'User not found'})
+    if (!user) {
+      return res.status(404).json({ success: false, message: 'User not found' })
     }
+
+    // if user is exist then check password or compare the password
+    const checkCorrectPassword = bcrypt.compare(
+      req.body.password,
+      user.password
+    )
+
+    // if password is incorrect
   } catch (error) {}
 }
