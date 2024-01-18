@@ -27,7 +27,7 @@ export const verifyUser = (req, res, next) => {
     if (req.user.id === req.params.id || req.user.role === 'admin') {
       next()
     } else {
-      res
+      return res
         .status(401)
         .json({ success: false, message: "You're not authenticated" })
     }
@@ -39,7 +39,9 @@ export const verifyAdmin = (req, res, next) => {
     if (req.user.role === 'admin') {
       next()
     } else {
-      res.status(401).json({ success: false, message: "You're not authorize" })
+      return res
+        .status(401)
+        .json({ success: false, message: "You're not authorize" })
     }
   })
 }
