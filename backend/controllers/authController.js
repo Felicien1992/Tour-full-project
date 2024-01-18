@@ -29,6 +29,16 @@ export const register = async (req, res) => {
 
 // user login
 export const login = async (req, res) => {
+
+  const email = req.body.email
+
   try {
+
+    const user = await User.findOne({email})
+
+    // if user doesn't exist
+    if(!user){
+      return res.status(404).json({success:false, message:'User not found'})
+    }
   } catch (error) {}
 }
