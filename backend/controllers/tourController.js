@@ -62,7 +62,7 @@ export const getSingleTour = async (req, res) => {
   const id = req.params.id
 
   try {
-    const tour = await Tour.findById(id)
+    const tour = await Tour.findById(id).populate('reviews');
 
     res.status(200).json({
       success: true,
@@ -81,6 +81,7 @@ export const getAllTour = async (req, res) => {
 
   try {
     const tours = await Tour.find({})
+      .populate('reviews')
       .skip(page * 8)
       .limit(8)
 
@@ -123,7 +124,9 @@ export const getTourBySearch = async (req, res) => {
 // get featured tour
 export const getFeaturedTour = async (req, res) => {
   try {
-    const tours = await Tour.find({ featured: true }).limit(8)
+    const tours = await Tour.find({ featured: true })
+      .populate('reviews')
+      .limit(8)
 
     res.status(200).json({
       success: true,
@@ -135,14 +138,13 @@ export const getFeaturedTour = async (req, res) => {
   }
 }
 
-
 // get tour counts
-export const getTourCount = async(req, res)=>{
+export const getTourCount = async (req, res) => {
   try {
     const tourCount = await Tour.estimatedDocumentCount()
 
-    res.status(200).json({success:true, data:tourCount})
+    res.status(200).json({ success: true, data: tourCount })
   } catch (err) {
-    res.status(500).json({success:false, message:"failed to fetch"}) 
+    res.status(500).json({ success: false, message: 'failed to fetch' })
   }
 }
