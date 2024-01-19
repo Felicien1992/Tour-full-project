@@ -1,7 +1,12 @@
 import React from 'react'
 
+import CommonSection from './../shared/CommonSection';
+
 const SearchResultList = () => {
-  return <div>SearchResultList</div>
+  return <>
+  <CommonSection title={'Tour Search Result'}/>
+  
+  </>
 }
 
 export default SearchResultList
