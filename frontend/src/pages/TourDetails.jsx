@@ -1,20 +1,22 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import '../styles/tour-details.css'
 import { Container, Row, Col, Form, ListGroup } from 'reactstrap'
 import { useParams } from 'react-router-dom'
-import toutData from '../assets/data/tours'
-import calculateAvgRating from '../utils/avgRating'
+import calculateAvgRating from './../utils/avgRating'
 import avatar from '../assets/images/avatar.jpg'
 import Booking from '../components/Boobing/Booking'
 import Newsletter from './../shared/Newsletter';
+import useFetch from './../hooks/useFetch';
+import { BASE_URL } from './../utils/config';
+
 
 const TourDetails = () => {
   const { id } = useParams()
   const reviewMsgRef = useRef('')
   const [tourRating, setTourRating] = useState(null)
 
-  // this is an static data later we will call our API and load our data from database
-  const tour = toutData.find((tour) => tour.id == id)
+  // fetch data from database
+  const {data:tour} = useFetch(`${BASE_URL}/tours/${id}`)
 
   // distracture properties from tour object
   const {
@@ -42,6 +44,10 @@ const TourDetails = () => {
     //later will call our api
   }
 
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  },[])
+
   return (
     <>
       <section>
@@ -60,8 +66,8 @@ const TourDetails = () => {
                         class="ri-star-s-fill"
                         style={{ color: 'var(--secondary-color)' }}
                       ></i>
-                      {avgRating == 0 ? null : avgRating}
-                      {totalRating == 0 ? (
+                      {avgRating === 0 ? null : avgRating}
+                      {totalRating === 0 ? (
                         'Not rated'
                       ) : (
                         <span>({reviews?.length})</span>
@@ -78,7 +84,10 @@ const TourDetails = () => {
                       <i class="ri-map-pin-2-line"></i> {city}
                     </span>
                     <span>
-                      <i class="ri-map-pin-time-line"></i> {distance} k/m person
+                      <i class="ri-money-dollar-circle-line"></i> {price} /per person
+                    </span>
+                    <span>
+                      <i class="ri-map-pin-time-line"></i> {distance} k/m
                     </span>
                     <span>
                       <i class="ri-group-line"></i> {maxGroupSize} people
@@ -186,12 +195,12 @@ const TourDetails = () => {
             </Col>
 
             <Col lg="4">
-              <Booking tour={tour} avgRating = {avgRating}/>
+              <Booking tour={tour} avgRating={avgRating} />
             </Col>
           </Row>
         </Container>
       </section>
-      <Newsletter/>
+      <Newsletter />
     </>
   )
 }
