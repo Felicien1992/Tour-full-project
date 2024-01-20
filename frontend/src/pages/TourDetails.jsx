@@ -45,15 +45,14 @@ const TourDetails = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0)
-  }, [])
+  }, [tour])
 
   return (
     <>
       <section>
         <Container>
-          {
-            loading && <h4>Loading</h4>
-          }
+          {loading && <h4 className="text-center pt-5">Loading......</h4>}
+          {error && <h4 className="text-center pt-5">{error}</h4>}
           {!loading && !error && (
             <Row>
               <Col lg="8">
