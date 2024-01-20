@@ -8,6 +8,8 @@ import SearchBar from './../shared/SearchBar'
 import Newsletter from './../shared/Newsletter'
 import { Container, Row, Col } from 'reactstrap'
 
+
+
 const Tours = () => {
 
   const [pageCount, setPageCount] = useState(0)
@@ -15,14 +17,14 @@ const Tours = () => {
 
   useEffect(()=>{
 
-    const pages = Math.ceil(5/ 4); // later we will use backend data count
+    const pages = Math.ceil(5 / 4); // later we will use backend data count
     setPageCount(pages);
 
   },[page]);
 
   return (
     <>
-      <CommonSection title={'All Tour'} />
+      <CommonSection title={'All Tours'} />
       <section>
         <Container>
           <Row>
