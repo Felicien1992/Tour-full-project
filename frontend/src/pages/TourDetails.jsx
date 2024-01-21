@@ -64,7 +64,8 @@ const TourDetails = () => {
         body:JSON.stringify(reviewObj)
       })
 
-      const result = await res.json()
+      const result = await res.json();
+      if(!res.ok) alert(result.message)
       alert(result.message);
 
     } catch (err) {
