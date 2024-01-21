@@ -50,10 +50,10 @@ const TourDetails = () => {
       }
 
       const reviewObj = {
-        username:user.username,
+        username:user?.username,
         reviewText,
-        rating:tourRating
-      }
+        rating:tourRating,
+      };
 
       const res = await fetch(`${BASE_URL}/review/${id}`,{
         method:'post',
@@ -65,8 +65,11 @@ const TourDetails = () => {
       })
 
       const result = await res.json();
-      if(!res.ok) alert(result.message)
-      alert(result.message);
+      if(!res.ok) {
+        return alert(result.message)
+      }
+
+      alert(result.message)
 
     } catch (err) {
       alert(err.message);
@@ -177,20 +180,21 @@ const TourDetails = () => {
                           <div className="w-100">
                             <div className="d-flex align-items-center justify-content-between">
                               <div>
-                                <h5>Felicien</h5>
+                                <h5>{review.username}</h5>
                                 <p>
-                                  {new Date('01-18-2023').toLocaleDateString(
+                                  {new Date(review.createdAt).toLocaleDateString(
                                     'en-US',
                                     options
                                   )}
                                 </p>
-
-                                <h6>Amazing tour</h6>
                               </div>
                               <span className="d-flex align-items-center">
-                                5<i className="ri-star-s-fill"></i>
+                                {review.rating}
+                                <i className="ri-star-s-fill"></i>
                               </span>
                             </div>
+
+                            <h6>{review.reviewText}</h6>
                           </div>
                         </div>
                       ))}
