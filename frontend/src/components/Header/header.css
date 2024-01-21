@@ -60,4 +60,16 @@
         background: rgba(0,0,0,0.411);
         z-index:999 ;
     }
+
+    .menu{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: calc(100% - 75%);
+        height: 100%;
+        background: #fff;
+        flex-direction: column;
+        line-height: 0.5rem;
+        justify-content: center;
+    }
 }
