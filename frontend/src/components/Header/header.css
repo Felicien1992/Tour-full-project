@@ -74,4 +74,12 @@
         justify-content: center;
         z-index:9999 ;
     }
+
+    .show__menu{
+        display: block;
+    }
+
+    .mobile__menu{
+        display: block;
+    }
 }
