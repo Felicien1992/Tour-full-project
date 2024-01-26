@@ -1,1 +1,1 @@
- export const BASE_URL = 'https://tour-backend-xi63.onrender.com';
+ export const BASE_URL = 'http://localhost:4000/api/v1';
