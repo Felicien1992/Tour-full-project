@@ -1,6 +1,8 @@
-import jwt from 'jsonwebtoken'
+// import jwt from 'jsonwebtoken'
 
-export const verifyToken = (req, res, next) => {
+const jwt = require("jsonwebtoken")
+
+ const verifyToken = (req, res, next) => {
   const token = req.cookies.accessToken
 
   if (!token) {
@@ -36,7 +38,7 @@ export const verifyUser = (req, res, next) => {
 
 export const verifyAdmin = (req, res, next) => {
   verifyToken(req, res, next, () => {
-    if (req.user.role === 'admin') {
+    if (req.user.role === 'admin' ) {
       next()
     } else {
       return res
@@ -45,3 +47,7 @@ export const verifyAdmin = (req, res, next) => {
     }
   })
 }
+
+//********************************** */
+
+module.exports = {verifyAdmin, verifyUser, verifyToken};
